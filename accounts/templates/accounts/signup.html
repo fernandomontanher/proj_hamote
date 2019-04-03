@@ -1,0 +1,26 @@
+
+<!-- templates/signup.html -->
+{% extends 'accounts/base.html' %}
+{% load bootstrap %}
+
+
+{% block main %}
+<div class="row offset-md-4" style="margin-top:80px;">
+    <div class="col-6">
+        <div class="row" style="margin-top:150px;">
+            <div class="col">
+                <h2>Sign up</h2>
+            </div>
+        </div>
+        <div class="row"">
+            <div class="col">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|bootstrap }}
+                    <button type="submit">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

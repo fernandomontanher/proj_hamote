@@ -1,0 +1,15 @@
+{% extends 'dev/base.html' %}
+{% load bootstrap %}
+{% block main %}
+<div class="row" style="margin-top:150px;">
+    <div class="col-md-8 offset-md-2 mt-4">
+        <form method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            {{ form|bootstrap  }}
+
+            <input class="btn btn-primary btn-get-started scrollto" type="submit" value="Cadastrar">
+		</form>
+    </div>
+</div>
+{% endblock %}

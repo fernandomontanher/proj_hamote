@@ -1,0 +1,59 @@
+{% extends 'project/base.html' %}
+{% load bootstrap %}
+{% block main %}
+
+{% include 'project/progress_bar.html'%}
+<div class="container-fluid mb-5" style="margin-top:50px;">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-4">
+            <h1> Monte sua equipe </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7 offset-md-2 mt-4">
+            <p> Defina quais são as principais competências para os cargos das pessoas que irão compor o seu projeto. </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-4">
+            <form method="post" enctype="multipart/form-data">
+
+                {% csrf_token %}
+                {{ form|bootstrap  }}
+
+            <input type="submit" value="Save">
+			</form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-4">
+            <h1> Equipe </h1>
+        </div>
+    </div>
+    {% for post in posts %}
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-4">
+            <div class="card">
+                <div class="card-body">
+
+                    <a href="{% url 'post-delete' post.id %}">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row">
+        <div class="col-8 offset-md-2 mt-4">
+            <a href="{% url 'project-list'%}">
+                <button type="button" class="btn btn-primary btn-lg btn-block btn-success">
+                    Criar projeto
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

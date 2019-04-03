@@ -1,0 +1,16 @@
+{% extends 'accounts/base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+    <div class="row" style="margin-top:150px;">
+            <div class="col-4 offset-md-4"
+            <h2>Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form | bootstrap }}
+              <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
